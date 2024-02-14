@@ -2,8 +2,10 @@ package com.es.programacion.tema6.proyectoComida.classes;
 
 import com.es.programacion.tema6.proyectoComida.classes.impl.Hueso;
 import com.es.programacion.tema6.proyectoComida.classes.impl.Lentejas;
+import com.es.programacion.tema6.proyectoComida.classes.impl.LlegasTarde;
 import com.es.programacion.tema6.proyectoComida.classes.impl.Salchicha;
 
+import java.util.Random;
 import java.util.Scanner;
 
 
@@ -12,6 +14,8 @@ import java.util.Scanner;
 
             // Es vuestra energia al ppio del día
             int energia = 100;
+            Random r = new Random();
+            int llegasTardeRand;
 
             Scanner scan = new Scanner(System.in);
             System.out.println("""
@@ -23,6 +27,7 @@ import java.util.Scanner;
                     5. Hueso
                     6. Lentejas
                     7. Salchicha
+                    8. 
                     0. Salir
                     """);
             System.out.println("Indique la opcion: ");
@@ -30,6 +35,7 @@ import java.util.Scanner;
 
             while (opc != 0) {
                 opc = scan.nextInt();
+
                 switch (opc){
                     case 1:
                         energia = energia - 20;
@@ -54,6 +60,22 @@ import java.util.Scanner;
                     case 7:
                         Salchicha salchichaUP = new Salchicha();
                         energia += salchichaUP.addNutricion();
+                        break;
+                    case 8:
+                        llegasTardeRand = r.nextInt(2)+1;
+                        LlegasTarde llegasTarde;
+                        if (llegasTardeRand == 1){
+                            llegasTarde = new LlegasTarde(true);
+                            System.out.println("Te quedas en la calle");
+                        }else {llegasTarde = new LlegasTarde(false);}
+                        System.out.println("Entras");
+                        energia += energia -40;
+                        break;
+                    case 9:
+
+                        break;
+                    case 10:
+
                         break;
                     case 0:
                         System.out.println("Saliendo del día de clase");
