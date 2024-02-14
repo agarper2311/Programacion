@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-# PROG_2324
 =======
 # Programación
 > [!IMPORTANT]
