@@ -27,34 +27,6 @@ public class Main {
             cuenta.calcularIntereses();
             cuenta.mostrarDatos();
         }
-
-        Scanner scan = new Scanner(System.in);
-        int opc;
-        do {
-
-            System.out.println("Bienvenido/a al Banco");
-            System.out.println("\t1. Ingresar dinero a su cuenta.");
-            System.out.println("\t2. Retirar dinero de su cuenta.");
-            System.out.println("\t3. Traspasar dinero de una cuenta a otra");
-            System.out.println("Introduzca su opción: ");
-            opc = scan.nextInt();
-
-
-            switch (opc) {
-                case 1:
-
-                    break;
-                case 2:
-
-                    break;
-
-                case 3:
-
-                    break;
-            }
-        } while (opc != 0);
-
-
     }
 }
 
