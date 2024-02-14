@@ -5,7 +5,7 @@ import com.es.programacion.tema6.proyectoBanco.clases.CuentaBancaria;
 import com.es.programacion.tema6.proyectoBanco.clases.CuentaCorriente;
 
 import java.util.ArrayList;
-import java.util.Scanner;
+
 
 public class Main {
 
