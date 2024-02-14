@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-# PROG_2324
 =======
 # Programación
 > [!IMPORTANT]
@@ -10,4 +8,3 @@
 
 >[!NOTE]
 >Gracias por leer 
->>>>>>> e13986c804f209d8b63b5b7f8fdf3294fede19a2
