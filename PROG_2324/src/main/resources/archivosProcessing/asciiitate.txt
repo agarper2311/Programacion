@@ -1,0 +1,80 @@
+PImage img;
+
+//String density = " .:c-=+*a#%@Ñ";
+String density = " .,-=+:;cba!?0123456789$W#@Ñ";
+//String density = "@MBHENR#KWXDFPQASUZbdehx*8Gm&04LOVYkpq5Tagns69owz$CIu23Jcfry%1v7l+it[]{}?j|()=~!-/<>\"^_';,:`. ";
+
+
+void setup() {
+  size(650, 650);
+  //img = loadImage("yo_2.jpg");
+  //img = loadImage("pikachu_sm.jpg");
+  //img = loadImage("yo_sm.jpg");
+  //img = loadImage("yoFGrisPeque.jpg");
+  img = loadImage("yoFBlanPeq.jpg");
+  //img = loadImage("cr7_med.jpg");
+
+}
+
+void draw() {
+  /*
+  loadPixels();
+
+  for(int x=0; x<width; x++){
+    for(int y=0; y<height; y++){
+      float d = dist(x,y,0,y);
+      pixels[x+y*width] = color(100,d,100);
+    }
+  }
+
+  updatePixels();*/
+
+  background(255);
+  //image(img, 0, 0, width, height);
+  img.loadPixels();
+
+
+  float w = (float)width / (float)img.width;
+  float h = (float)height / (float)img.height;
+
+  for(int x=0; x<img.width; x++){
+    for(int y=0; y<img.height; y++){
+      //img.pixels[x+y*img.width] = color(100,0,100,10);
+
+      // Poniendo una cajita por pixel, con el color de la imagen
+      //noStroke();
+      //fill(img.pixels[x+y*img.width]);
+      //square(x*w, y*h, w);
+
+
+      // Probando lo de brigthness -> Funciona gucci
+      //noStroke();
+      //float avg = brightness(img.pixels[x+y*img.width]);
+      //fill(avg);
+      //square(x*w, y*h, w);
+
+      // Probando a poner una letra por pixel
+      //noStroke();
+      //float avg = brightness(img.pixels[x+y*img.width]);
+      //fill(avg);
+      //textSize(w);
+      //textAlign(CENTER, CENTER);
+      //text('G', x*w + w/2, y*h + h/2);
+
+      // Probando a poner una letra de las de density
+      noStroke();
+      float avg = brightness(img.pixels[x+y*img.width]);
+      fill(0);
+
+      int len = density.length();
+      int charIndex = floor(map(avg,0,255,len,0));
+
+      textSize(9);
+      textAlign(CENTER, CENTER);
+      text(density.charAt(charIndex), x*w + w*0.5, y*h + y*0.5);
+
+    }
+  }
+
+  img.updatePixels();
+}
