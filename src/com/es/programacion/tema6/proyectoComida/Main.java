@@ -1,3 +1,5 @@
+package com.es.programacion.tema6.proyectoComida;
+
 import com.es.programacion.tema6.proyectoComida.classes.api.Comida;
 import com.es.programacion.tema6.proyectoComida.classes.api.Historia;
 import com.es.programacion.tema6.proyectoComida.classes.api.Reganeta;

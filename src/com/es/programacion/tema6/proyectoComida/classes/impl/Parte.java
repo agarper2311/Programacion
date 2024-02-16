@@ -1,12 +1,12 @@
 package com.es.programacion.tema6.proyectoComida.classes.impl;
 
-import com.es.programacion.tema6.proyectoComida.classes.api.Reganiasion;
+import com.es.programacion.tema6.proyectoComida.classes.api.Reganeta;
 
-public class Parte implements Reganiasion {
+public class Parte implements Reganeta {
 
     private boolean esGrave;
 
-    public Parte(boolean esGrave){
+    public Parte(boolean esGrave) {
         this.esGrave = esGrave;
     }
 
