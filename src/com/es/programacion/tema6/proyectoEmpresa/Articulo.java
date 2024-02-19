@@ -13,8 +13,40 @@ public class Articulo {
 
     public Articulo(String id, String nombre, Proveedor p, double precioSinIVA, int stock) {
         this.id = id;
+        setNombre(nombre);
+        setProveedor(p);
+        setPrecioSinIVA(precioSinIVA);
+        setPrecioConIVA();
+        setStock(stock);
+    }
+
+    @Override
+    public String toString() {
+        String cadenaAMostrar = "";
+        cadenaAMostrar += "Articulo con id: "+this.id+"\n";
+        cadenaAMostrar += "Nombre: "+this.nombre+" precio: "+this.precioConIVA+"€\n";
+        cadenaAMostrar += "Stock: "+this.stock;
+        return cadenaAMostrar;
+    }
+
+    @Override
+    public boolean equals(Object art){
+
+
+        if (art instanceof Articulo){
+            Articulo articulo = (Articulo) art;
+
+            if (this.id.equalsIgnoreCase(articulo.id)){
+                return true;
+            }else {
+                return false;
+            }
+        }else {
+            return false;
+        }
 
     }
+
 
     // Getters y Setters
 
@@ -63,4 +95,5 @@ public class Articulo {
     public void setStock(int stock) {
         this.stock = stock;
     }
+
 }
