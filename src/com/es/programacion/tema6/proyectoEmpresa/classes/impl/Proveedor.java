@@ -1,4 +1,4 @@
-package com.es.programacion.tema6.proyectoEmpresa;
+package com.es.programacion.tema6.proyectoEmpresa.classes.impl;
 
 public class Proveedor {
 
@@ -32,7 +32,6 @@ public class Proveedor {
         } else {
             return false;
         }
-
     }
 
     // Getters and setters

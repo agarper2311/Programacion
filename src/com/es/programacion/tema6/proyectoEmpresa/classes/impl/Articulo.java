@@ -1,6 +1,8 @@
-package com.es.programacion.tema6.proyectoEmpresa;
+package com.es.programacion.tema6.proyectoEmpresa.classes.impl;
 
-public class Articulo {
+import org.jetbrains.annotations.NotNull;
+
+public class Articulo implements Comparable<Articulo>{
 
     private String id;
     private String nombre;
@@ -93,7 +95,20 @@ public class Articulo {
     }
 
     public void setStock(int stock) {
-        this.stock = stock;
+        this.stock = this.stock + stock;
     }
 
+
+    // Interface Comparable
+    @Override
+    public int compareTo(@NotNull Articulo o) {
+        if (this.precioSinIVA == o.precioSinIVA){
+            return 0;
+        } else if (this.precioSinIVA > o.precioSinIVA) {
+            return 1;
+        }else {
+            return -1;
+        }
+
+    }
 }
