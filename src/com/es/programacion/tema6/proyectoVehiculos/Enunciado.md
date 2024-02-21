@@ -31,8 +31,8 @@ genéricos (es decir, que no sean coches, motos, barcos, submarinos, aviones o h
 El diseño debe obligar a que todas las clases de vehículos tengan un método imprimir() que
 imprima por pantalla la información del vehículo en una sola línea.
 Implementa todas las clases necesarias con: atributos, constructor con parámetros, getters/setters
-y el método imprimir. Utiliza bastracción y herencia de la forma más apropiada.
+y el método imprimir. Utiliza abstracción y herencia de la forma más apropiada.
 Implementa también una clase Programa para hacer algunas pruebas: Instancia varios vehículos de
-todo tipo (coches, motos, barcos, submarinos, aviones y helicópteros) así como vehículos genericos
+todo tipo (coches, motos, barcos, submarinos, aviones y helicópteros) así como vehículos genéricos
 (terrestres, acuáticos y aéreos). Crea un ArrayList y añade todos los vehículos. Recorre la lista y
 llama al método imprimir de todos los vehículos.
