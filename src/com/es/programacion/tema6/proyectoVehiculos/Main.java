@@ -20,7 +20,7 @@ public class Main {
         // Crear el ArrayList para almacenar todos los vehículos
         List<Vehiculo> vehiculos = new ArrayList<>();
 
-        // Añadir los vehículos al ArrayList
+        // Añadir los vehículos al ArrayList.
         vehiculos.add(lambo);
         vehiculos.add(kawasaki);
         vehiculos.add(yate);
