@@ -1,0 +1,4 @@
+Usuario: hola, Contraseña: 1234
+Usuario: adios, Contraseña: 5678
+Usuario: bueno, Contraseña: 1111
+Usuario: malo, Contraseña: 0000
