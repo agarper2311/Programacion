@@ -374,15 +374,15 @@ public class Main {
                     System.out.println("El pokemon de " + ANSI_GREEN + "Ash, " + ANSI_RESET + entrenador1[pokAsh].nombre + " tiene ahora " + ANSI_YELLOW + entrenador1[pokAsh].vida + ANSI_RESET);
                     break;
             }
-            // Si el Pokémon de Gary es derrotado
-            if (entrenador2[pokAsh].vida <= 0) {
+            // Si el Pokémon de Ash es derrotado
+            if (entrenador1[pokAsh].vida <= 0) {
                 System.err.println("El pokemon de Ash, " + entrenador1[pokAsh].nombre + " ha caido derrotado.");
 
                 if (pokemonTotales1 - 1 > pokAsh) { // Verifica si hay más Pokémon disponibles
                     System.out.println("Ash, selecciona tu próximo Pokémon:");
                     pokAsh = mostrarMenuPokemon(entrenador1, pokemonTotales1); // Permite seleccionar otro Pokémon
                 } else {
-                    System.out.println("Todos los Pokémon de Gary han sido derrotados. Ash gana!");
+                    System.out.println("Todos los Pokémon de Ash han sido derrotados. Gary gana!");
                     System.exit(0);
                 }
             }
