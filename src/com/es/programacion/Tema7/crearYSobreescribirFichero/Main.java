@@ -1,5 +1,6 @@
 package com.es.programacion.Tema7.crearYSobreescribirFichero;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.io.IOException;
@@ -10,11 +11,11 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         String username, password;
 
-        // Especifica la ruta donde deseas guardar el archivo de texto
+        // ruta donde guardar el archivo de texto
         String filePath = "src/main/resources/archivosTema7/usuarios_y_contrasenas.txt";
 
         try {
-            // Usar FileWriter para escribir en el archivo, el segundo parámetro 'true' indica que se añadirá al archivo (append)
+            // Usar FileWriter para escribir en el archivo
             FileWriter fileWriter = new FileWriter(filePath, true);
             PrintWriter printWriter = new PrintWriter(fileWriter);
 
@@ -43,6 +44,22 @@ public class Main {
             System.out.println("Ocurrió un error al escribir en el archivo.");
             e.printStackTrace();
         }
+
+        try {
+            // Crea un objeto File para el archivo
+            File archivo = new File(filePath);
+            Scanner lectorArchivo = new Scanner(archivo);
+
+            System.out.println("Contenido del archivo:");
+            // Lee el archivo línea por línea y lo muestra por pantalla
+            while (lectorArchivo.hasNextLine()) {
+                String linea = lectorArchivo.nextLine();
+                System.out.println(linea);
+            }
+            lectorArchivo.close(); // Cierra el Scanner
+        } catch (IOException e) {
+            System.out.println("Ocurrió un error al leer el archivo.");
+            e.printStackTrace();
+        }
     }
 }
-

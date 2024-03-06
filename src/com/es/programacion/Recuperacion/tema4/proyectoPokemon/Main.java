@@ -379,7 +379,7 @@ public class Main {
                 System.err.println("El pokemon de Ash, " + entrenador1[pokAsh].nombre + " ha caido derrotado.");
 
                 if (pokemonTotales1 - 1 > pokAsh) { // Verifica si hay más Pokémon disponibles
-                    System.out.println("Gary, selecciona tu próximo Pokémon:");
+                    System.out.println("Ash, selecciona tu próximo Pokémon:");
                     pokAsh = mostrarMenuPokemon(entrenador1, pokemonTotales1); // Permite seleccionar otro Pokémon
                 } else {
                     System.out.println("Todos los Pokémon de Gary han sido derrotados. Ash gana!");
