@@ -6,22 +6,19 @@ import com.es.programacion.Recuperacion.tema4.proyectoPokemon.classes.Tipo;
 public class Pokedex {
     public static final String ANSI_BLUE = "\u001B[32m";
     public static final String ANSI_RESET = "\u001B[0m";
-    //Comparar con .equalsignorecase
-    /**
-     * Listado de los tipos aceptados en el juego
-     */
+
 
     private static String[] tiposAceptados = {"Acero", "Agua", "Bicho", "Dragon", "Electrico", "Fantasma", "Fuego", "Hada", "Hielo", "Lucha", "Normal", "Planta", "Psíquico", "Roca", "Siniestro", "Tierra", "Veneno", "Volador"};
 
 
-    //************************************
-    //*******CONSTRUCTOR DE CLASE*********
-    //************************************
+    /**
+     * Constructor de la clase
+     */
 
 
-    //************************************
-    //********METODOS DE CLASE************
-    //************************************
+    /**
+     * Métodos de clase
+     */
 
     /**
      * @param tipoPokemon Nobre del tipo que se intenta comparar
@@ -51,7 +48,9 @@ public class Pokedex {
         //Comprueba la efectividad del ataque entre dos tipos
         //Devuelve un modificador de danio (1.5, 1, 0.5 o 0)
         double resultado = 0.0;
-        //************ACERO*************
+        /**
+         * Acero
+         */
         if (tipoAtaque.nombre.equals("Acero")){
             if (tipoRecibeAtaque.nombre.equals("Acero")){
                 return 0.5;
@@ -91,7 +90,7 @@ public class Pokedex {
                 return 1;
             }
         }
-        //************AGUA*************
+        //Agua
         if (tipoAtaque.nombre.equals("Agua")){
             if (tipoRecibeAtaque.nombre.equals("Acero")){
                 return 1;
@@ -131,7 +130,7 @@ public class Pokedex {
                 return 1;
             }
         }
-        //************BICHO*************
+        //Bicho
         if (tipoAtaque.nombre.equals("Bicho")){
             if (tipoRecibeAtaque.nombre.equals("Acero")){
                 return 0.5;
@@ -172,7 +171,7 @@ public class Pokedex {
             }
         }
 
-        //************DRAGON*************
+        //Dragon
         if (tipoAtaque.nombre.equals("Dragon")){
             if (tipoRecibeAtaque.nombre.equals("Acero")){
                 return 0.5;
@@ -212,7 +211,7 @@ public class Pokedex {
                 return 1;
             }
         }
-        //************ELECTRICO*************
+        //Electrico
         if (tipoAtaque.nombre.equals("Electrico")){
             if (tipoRecibeAtaque.nombre.equals("Acero")){
                 return 1;
@@ -252,7 +251,7 @@ public class Pokedex {
                 return 1.5;
             }
         }
-        //************FANTASMA*************
+        //Fantasma
         if (tipoAtaque.nombre.equals("Fantasma")){
             if (tipoRecibeAtaque.nombre.equals("Acero")){
                 return 1;
@@ -292,7 +291,7 @@ public class Pokedex {
                 return 1.5;
             }
         }
-        //************FUEGO*************
+        //Fuego
         if (tipoAtaque.nombre.equals("Fuego")){
             if (tipoRecibeAtaque.nombre.equals("Acero")){
                 return 1.5;
@@ -332,7 +331,7 @@ public class Pokedex {
                 return 1;
             }
         }
-        //************HADA*************
+        //Hada
         if (tipoAtaque.nombre.equals("Hada")){
             if (tipoRecibeAtaque.nombre.equals("Acero")){
                 return 0.5;
@@ -372,7 +371,7 @@ public class Pokedex {
                 return 1;
             }
         }
-        //************HIELO*************
+        //Hielo
         if (tipoAtaque.nombre.equals("Hielo")){
             if (tipoRecibeAtaque.nombre.equals("Acero")){
                 return 0.5;
@@ -412,7 +411,7 @@ public class Pokedex {
                 return 1;
             }
         }
-        //************LUCHA*************
+        //Lucha
         if (tipoAtaque.nombre.equals("Lucha")){
             if (tipoRecibeAtaque.nombre.equals("Acero")){
                 return 1.5;
@@ -452,7 +451,7 @@ public class Pokedex {
                 return 0.5;
             }
         }
-        //************NORMAL*************
+        //Normal
         if (tipoAtaque.nombre.equals("Normal")){
             if (tipoRecibeAtaque.nombre.equals("Acero")){
                 return 0.5;
@@ -492,7 +491,7 @@ public class Pokedex {
                 return 1;
             }
         }
-        //************PLANTA*************
+        //Planta
         if (tipoAtaque.nombre.equals("Planta")){
             if (tipoRecibeAtaque.nombre.equals("Acero")){
                 return 0.5;
@@ -532,7 +531,7 @@ public class Pokedex {
                 return 0.5;
             }
         }
-        //************PSQUICO*************
+        //Psiquico
         if (tipoAtaque.nombre.equals("Psiquico")){
             if (tipoRecibeAtaque.nombre.equals("Acero")){
                 return 0.5;
@@ -572,7 +571,7 @@ public class Pokedex {
                 return 1;
             }
         }
-        //************ROCA*************
+        //Roca
         if (tipoAtaque.nombre.equals("Roca")){
             if (tipoRecibeAtaque.nombre.equals("Acero")){
                 return 0.5;
@@ -612,7 +611,7 @@ public class Pokedex {
                 return 1;
             }
         }
-        //************SINIESTRO*************
+        //Siniestro
         if (tipoAtaque.nombre.equals("Siniestro")){
             if (tipoRecibeAtaque.nombre.equals("Acero")){
                 return 1;
@@ -652,7 +651,7 @@ public class Pokedex {
                 return 1;
             }
         }
-        //************Tierra*************
+        //Tierra
         if (tipoAtaque.nombre.equals("Tierra")){
             if (tipoRecibeAtaque.nombre.equals("Acero")){
                 return 1.5;
@@ -692,7 +691,7 @@ public class Pokedex {
                 return 0;
             }
         }
-        //************VENENO*************
+        //Veneno
         if (tipoAtaque.nombre.equals("Veneno")){
             if (tipoRecibeAtaque.nombre.equals("Acero")){
                 return 0;
@@ -732,7 +731,7 @@ public class Pokedex {
                 return 1;
             }
         }
-        //************VOLADOR*************
+        //Volador
         if (tipoAtaque.nombre.equals("Volador")){
             if (tipoRecibeAtaque.nombre.equals("Acero")){
                 return 0.5;

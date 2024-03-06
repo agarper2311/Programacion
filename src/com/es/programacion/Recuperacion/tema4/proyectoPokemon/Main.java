@@ -7,23 +7,19 @@ import com.es.programacion.Recuperacion.tema4.proyectoPokemon.classes.Tipo;
 import java.util.Scanner;
 
 public class Main {
-    public static final String ANSI_BLUE = "\u001B[34m";
-    public static final String ANSI_RESET = "\u001B[0m";
-    public static final String ANSI_GREEN = "\u001B[32m";
-    public static final String ANSI_YELLOW = "\u001B[33m";
-    public static final String ANSI_PURPLE = "\u001B[35m";
-
     /**
-     * -> Crear 6 pokemon
-     * -Crear todos los ataques
-     * -Crear todos los tipos
-     * -> Eleccion Pokemons
-     * -> Combate
+     *
      */
+    public static final String ANSI_BLUE = "\u001B[34m"; // Define un color de texto azul
+    public static final String ANSI_RESET = "\u001B[0m"; // Restablece el color de texto por defecto
+    public static final String ANSI_GREEN = "\u001B[32m";// Define un color de texto verde
+    public static final String ANSI_YELLOW = "\u001B[33m";// Define un color de texto amarillo
+    public static final String ANSI_PURPLE = "\u001B[35m";// Define un color de texto morado
+
     public static void main(String[] args) {
-        //*******************************************
-        //***********Tipos de pokemon****************
-        //*******************************************
+        /**
+         * Tipos de pokemons
+         */
         Tipo electrico = new Tipo("Electrico");
 
         Tipo normal = new Tipo("Normal");
@@ -41,9 +37,9 @@ public class Main {
         Tipo hada = new Tipo("Hada");
 
 
-        //*******************************************
-        //***********Ataques de pokemon**************
-        //*******************************************
+        /**
+         * Ataques de los Pokemons
+         */
         //PIKACHU
         Ataque impactrueno = new Ataque("Impactrueno", electrico, 40, 0);
         Ataque ataqueRapido = new Ataque("Ataque Rápido", normal, 40, 0);
@@ -77,9 +73,9 @@ public class Main {
         Ataque hidropulso = new Ataque("Hidropulso", agua, 60, 0);
 
 
-        //*******************************************
-        //***********Constructor Pokemon*************
-        //*******************************************
+        /**
+         * Instanciar los pokemons
+         */
 
         Pokemon pikachu = new Pokemon("Pikachu", 250, electrico);
         Pokemon sunflora = new Pokemon("Sunflora", 250, planta);
@@ -88,44 +84,45 @@ public class Main {
         Pokemon togepi = new Pokemon("Togepi", 250, hada);
         Pokemon wailord = new Pokemon("Wailord", 350, agua);
 
-        //*******************************************
-        //*************Ataques equipados*************
-        //*******************************************
+        /**
+         * Ataques para cada pokemon
+         */
 
 
+        // Pikachu
         pikachu.ataques = new Ataque[4];
         pikachu.ataques[0] = impactrueno;
         pikachu.ataques[1] = ataqueRapido;
         pikachu.ataques[2] = trueno;
         pikachu.ataques[3] = atizar;
 
-
+        // Sunflora
         sunflora.ataques = new Ataque[4];
         sunflora.ataques[0] = hojaAfilada;
         sunflora.ataques[1] = recurrente;
         sunflora.ataques[2] = danzaPetalo;
         sunflora.ataques[3] = rayoSolar;
 
-
+        // Haunter
         haunter.ataques = new Ataque[4];
         haunter.ataques[0] = punioSombra;
         haunter.ataques[1] = golpeBajo;
         haunter.ataques[2] = vendetta;
         haunter.ataques[3] = bolaSombra;
 
-
+        // Vaporeon
         vaporeon.ataques = new Ataque[4];
         vaporeon.ataques[0] = ataqueRapido;
         vaporeon.ataques[1] = pistolaAgua;
         vaporeon.ataques[2] = acuaAro;
         vaporeon.ataques[3] = ultimaBaza;
 
-
+        // Togepi
         togepi.ataques = new Ataque[4];
         togepi.ataques[0] = ultimaBaza;
         togepi.ataques[1] = poderPasado;
 
-
+        // Wailord
         wailord.ataques = new Ataque[4];
         wailord.ataques[0] = ataquePesado;
         wailord.ataques[1] = desenrrollar;
@@ -133,14 +130,14 @@ public class Main {
         wailord.ataques[3] = pistolaAgua;
 
 
-        //Aquí se crea el menú donde los entrenadores eligen a sus pokemons con un do while
-        //En este menú se irán añadiendo al arr de cada entrenador hasta 3 pokemons
+        // Menú para elegir a los pokemons
+        //En este menú se irán añadiendo al array de cada entrenador hasta tener un máximo de 3 pokemons
 
         Scanner scan = new Scanner(System.in);
         int elegirPokemon1;
         int elegirPokemon2;
 
-        //El arr es de 4 porque luego he puesto .length -1 más abajo, sino podría haber puesto 3
+        //El array es de 4 porque usamos  .length -1 más abajo, de lo contrario podría haber puesto 3
         Pokemon entrenador1[] = new Pokemon[4];
         Pokemon entrenador2[] = new Pokemon[4];
 
@@ -406,21 +403,6 @@ public class Main {
 
         } while (pokAsh < 3 || pokGary < 3);
 
-        /*
-        Necesito que cuando un pokemon muera, este se pase al siguiente:
-            A) Usar if y crear interminables variables
-            B) Usar Switch y boolean para cuando un pokemon muera  este sea true. Si true, pokemon ash2 vs pokemon gary1 (Pero y si ahora muere gary1??)
-            C) Usar For y que si i =< 0 pase al siguiente pokemon
-
-            for (int i = 0; i < entrenador1.length - 1; i++) {
-          do{
-
-                -pokemon Ash[i] if .vidas es <=0 then -> i++
-
-                -
-                }
-            }
-         */
 
 
     }
