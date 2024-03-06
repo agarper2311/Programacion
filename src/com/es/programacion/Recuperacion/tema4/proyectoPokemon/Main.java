@@ -77,18 +77,17 @@ public class Main {
          * Instanciar los pokemons
          */
 
-        Pokemon pikachu = new Pokemon("Pikachu", 250, electrico);
-        Pokemon sunflora = new Pokemon("Sunflora", 250, planta);
-        Pokemon haunter = new Pokemon("Haunter", 250, fantasma);
-        Pokemon vaporeon = new Pokemon("Vaporeon", 250, agua);
-        Pokemon togepi = new Pokemon("Togepi", 250, hada);
-        Pokemon wailord = new Pokemon("Wailord", 350, agua);
+        Pokemon pikachu = new Pokemon("Pikachu", 250, electrico, "Pikachu es un Pokémon de tipo Eléctrico, conocido como el Pokémon Ratón. Es la forma evolucionada de Pichu, y puede evolucionar a Raichu cuando se expone a una Piedra Trueno. En algunas regiones, como en Alola, Raichu tiene una forma regional cuando evoluciona de un Pikachu.");
+        Pokemon sunflora = new Pokemon("Sunflora", 250, planta, "Sunflora es conocido por su naturaleza alegre y su habilidad para convertir la luz solar en energía, lo que le permite moverse con vivacidad.");
+        Pokemon haunter = new Pokemon("Haunter", 250, fantasma, "Haunter tiene un cuerpo oscuro y gaseoso con una boca amplia y dientes afilados. Sus manos flotan separadas de su cuerpo principal y tienen tres dedos puntiagudos en cada una.");
+        Pokemon vaporeon = new Pokemon("Vaporeon", 250, agua, "Vaporeon tiene la apariencia de un mamífero acuático que combina rasgos de zorros, peces y otros animales acuáticos. Su cuerpo es principalmente azul claro con una aleta dorsal y una cola que se asemeja a la de una sirena. Tiene orejas puntiagudas y ojos grandes y expresivos. Vaporeon tiene la habilidad única de disolverse en el agua, haciéndolo prácticamente invisible mientras está sumergido.");
+        Pokemon togepi = new Pokemon("Togepi", 250, hada, "Togepi es un pequeño Pokémon que se asemeja a un huevo. La mayor parte de su cuerpo está encerrado en su cáscara de huevo, que tiene un patrón de triángulos rojos y azules. Solo su cabeza y sus pequeñas manos y pies son visibles. A menudo es representado como un Pokémon alegre y amistoso, que puede emitir una energía positiva que trae buena suerte a quienes están cerca.");
+        Pokemon wailord = new Pokemon("Wailord", 350, agua, "Wailord es enormemente grande, con un cuerpo predominantemente azul y manchas claras en su parte inferior. Su tamaño es tan impresionante que su entrada en la Pokédex a menudo destaca su capacidad para saltar fuera del agua a pesar de su gran tamaño. Su diseño parece combinar elementos de varias especies de ballenas, aunque su comportamiento y habilidades recuerdan más a las ballenas azules y jorobadas.");
+
 
         /**
          * Ataques para cada pokemon
          */
-
-
         // Pikachu
         pikachu.ataques = new Ataque[4];
         pikachu.ataques[0] = impactrueno;
@@ -296,33 +295,13 @@ public class Main {
         } while (pokemonTotales2 < 3);
 
 
-        /**
-         * Para el combate necesito:
-         *      que los pokemon aparezcan en combate
-         *      que cada entrenador pueda elegir el ataque que quiero que haga ese pokemon
-         *      y que luego le toque al otro entrenador
-         *      si un pokemon cae a 0 pasa al siguiente pokemon del entrenador
-         *      cuando un entrenador se queda sin pokemons. El entrenador pierde
-         *
-         */
-
         //Aquí comienza la creación del combate Pokemon
         int elegirAtaqueAsh;
         int elegirAtaqueGary;
 
         int pokAsh = 0;
         int pokGary = 0;
-/**
- * Vamos a explicar como funciona este menú:
- * Primero creamos un do while que recoja las acciones de Ash y Gary
- * creamos unos int que representen el num del pokemon del arr de Ash y Gary pokAsh, pokGary respectivamente y lo inializamos en 0
- * como ahora pokAsh es 0, si lo colocamos dentro del arr entrenador1[pokAsh] será como colocar 0
- * Creamos un for para movernos por los pokemons de Ash y Gary y escribimos entrenador1[pokAsh].ataques.length
- * para que cuando cambie el pokemon también camien los atk a mostrar
- * Además con && ntrenador1[pokAsh].ataques[i] != null -> nos ayuda a que solo muestre los huecos que no sean null del array de ataques de cada pokemon
- * Dentro del for i+1 -> hace que i que es desde un principio 0 sea 1. para que sea más  intuitivo el menú de selección de ataques
- * i -> es 0 desde un principio y como se mueve a través del array  -> entrenador1[pokAsh].ataques[i].nombre ---> muestra los nombres de los ataques
- */
+
         do {
             System.out.println(ANSI_PURPLE+entrenador1[pokAsh].nombre + ANSI_RESET+" debe elegir qué usar: ");
             for (int i = 0; i < entrenador1[pokAsh].ataques.length && entrenador1[pokAsh].ataques[i] != null; i++) {
@@ -352,19 +331,22 @@ public class Main {
                     break;
             }
             //Aquí decimos que si un pokemon muere, pase al siguiente
+            // Si el Pokémon de Gary es derrotado
             if (entrenador2[pokGary].vida <= 0) {
-                System.err.println("El pokemon de Gary, " + entrenador2[pokGary].nombre + " ha caido derrotado. Saca su siguiente pokemon");
-                pokGary++;
-                //Da un bug al final cuando todos los pokemon del rival mueren, pero con esto nos salimos del programa antes de que eso ocurra
-                if (pokGary >= 3) {
+                System.err.println("El pokemon de Gary, " + entrenador2[pokGary].nombre + " ha caido derrotado.");
+
+                if (pokemonTotales2 - 1 > pokGary) { // Verifica si hay más Pokémon disponibles
+                    System.out.println("Gary, selecciona tu próximo Pokémon:");
+                    pokGary = mostrarMenuPokemon(entrenador2, pokemonTotales2); // Permite seleccionar otro Pokémon
+                } else {
+                    System.out.println("Todos los Pokémon de Gary han sido derrotados. Ash gana!");
                     System.exit(0);
                 }
             }
 
 
-            //***********
 
-            //Copiamos el mismo menú de arriba pero con parámetros distintos.
+
             System.out.println(ANSI_PURPLE +entrenador2[pokGary].nombre + ANSI_RESET + " debe elegir qué usar: ");
 
             for (int i = 0; i < entrenador2[pokGary].ataques.length && entrenador2[pokGary].ataques[i] != null; i++) {
@@ -392,18 +374,43 @@ public class Main {
                     System.out.println("El pokemon de " + ANSI_GREEN + "Ash, " + ANSI_RESET + entrenador1[pokAsh].nombre + " tiene ahora " + ANSI_YELLOW + entrenador1[pokAsh].vida + ANSI_RESET);
                     break;
             }
-            if (entrenador1[pokAsh].vida <= 0) {
-                System.err.println("El pokemon de Ash, " + entrenador1[pokAsh].nombre + " ha caido derrotado. Saca su siguiente pokemon");
-                pokAsh++;
-                if (pokAsh >= 3) {
+            // Si el Pokémon de Gary es derrotado
+            if (entrenador2[pokAsh].vida <= 0) {
+                System.err.println("El pokemon de Ash, " + entrenador1[pokAsh].nombre + " ha caido derrotado.");
+
+                if (pokemonTotales1 - 1 > pokAsh) { // Verifica si hay más Pokémon disponibles
+                    System.out.println("Gary, selecciona tu próximo Pokémon:");
+                    pokAsh = mostrarMenuPokemon(entrenador1, pokemonTotales1); // Permite seleccionar otro Pokémon
+                } else {
+                    System.out.println("Todos los Pokémon de Gary han sido derrotados. Ash gana!");
                     System.exit(0);
                 }
             }
+
+
 
 
         } while (pokAsh < 3 || pokGary < 3);
 
 
 
+
+    }
+    public static int mostrarMenuPokemon(Pokemon[] pokemons, int totalPokemons) {
+        Scanner scan = new Scanner(System.in);
+        int seleccion;
+
+        System.out.println("Selecciona tu próximo Pokémon:");
+        for (int i = 0; i < totalPokemons; i++) {
+            if (pokemons[i].vida > 0) {
+                System.out.println((i + 1) + ". " + pokemons[i].nombre + " - Vida: " + pokemons[i].vida);
+            }
+        }
+
+        do {
+            seleccion = scan.nextInt();
+        } while (seleccion < 1 || seleccion > totalPokemons || pokemons[seleccion - 1].vida <= 0);
+
+        return seleccion - 1; // Devuelve el índice del Pokémon seleccionado
     }
 }

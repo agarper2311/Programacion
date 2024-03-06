@@ -1,8 +1,6 @@
 package com.es.programacion.Recuperacion.tema4.proyectoPokemon.classes;
 
 
-import java.util.List;
-
 import static com.es.programacion.Recuperacion.tema4.proyectoPokemon.utils.Pokedex.checkEfectividad;
 
 public class Pokemon {
@@ -15,10 +13,11 @@ public class Pokemon {
     public Ataque[] ataques;
 
 
-    public Pokemon(String nombre, double vida, Tipo tipo){
+    public Pokemon(String nombre, double vida, Tipo tipo, String lore){
         this.nombre = nombre;
         this.vida = vida;
         this.tipo = tipo;
+        this.lore = lore;
     }
 
     public void recibirAtk (Ataque a){
@@ -27,11 +26,6 @@ public class Pokemon {
         }else {
             System.out.println();
         }
-    }
-
-    public double curarVida (){
-
-        return  0;
     }
 
 }
