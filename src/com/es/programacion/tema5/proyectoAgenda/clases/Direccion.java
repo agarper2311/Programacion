@@ -1,12 +1,13 @@
-package com.es.programacion.tema5.proyectoAgenda.clases;
+package com.Programacion.Tema5.proyectoAgenda.clases;
 
 public class Direccion {
-
     private String calle;
-    private int numero;
-    private int planta;
+    private String numero;
+    private String planta;
     private String puerta;
     private Localidad localidad;
+
+    // Getters y Setters
 
     public String getCalle() {
         return calle;
@@ -16,19 +17,19 @@ public class Direccion {
         this.calle = calle;
     }
 
-    public int getNumero() {
+    public String getNumero() {
         return numero;
     }
 
-    public void setNumero(int numero) {
+    public void setNumero(String numero) {
         this.numero = numero;
     }
 
-    public int getPlanta() {
+    public String getPlanta() {
         return planta;
     }
 
-    public void setPlanta(int planta) {
+    public void setPlanta(String planta) {
         this.planta = planta;
     }
 
@@ -48,12 +49,5 @@ public class Direccion {
         this.localidad = localidad;
     }
 
-    public void presentacion() {
-        System.out.printf("C/ %s, %d", this.calle, this.numero);
-        if(this.planta != 0) {
-            System.out.printf(", %d (%s)", this.planta, this.puerta);
-        }
-        System.out.print("\n");
-        localidad.presentacion();
-    }
+
 }

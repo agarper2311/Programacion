@@ -1,6 +1,8 @@
-package com.es.programacion.tema5.proyectoAgenda.clases;
+package com.Programacion.Tema5.proyectoAgenda.clases;
 
-import com.es.programacion.tema5.proyectoAgenda.utils.AgendaUtils;
+
+
+import com.Programacion.Tema5.proyectoAgenda.utils.AgendaUtils;
 
 public class Localidad {
 

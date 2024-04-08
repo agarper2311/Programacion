@@ -1,4 +1,4 @@
-package com.es.programacion.tema4.proyectoEmpresa.clases;
+package com.Programacion.Tema4.proyectoEmpresa.clases;
 
 public class Articulo {
 
@@ -13,21 +13,12 @@ public class Articulo {
 
     public String tipo;
 
-    /**
-     * Crear constructor personalizado al que se le pase
-     * el id, nombre, tipo y precioBase
-     *
-     * y además, que en base a esos parametros, que calcule el precioConIVA
-     */
-    public Articulo(String id, String nombre, String tipo, double precioBase){
+    public Articulo(String id, String nombre, String tipo, double PrecioBase){
         this.id = id;
         this.nombre = nombre;
         this.tipo = tipo;
         this.precioBase = precioBase;
-
-        calcularPrecioConIva();
     }
-
 
     /**
      * Vende un producto. Reduce el stock del producto en 1.

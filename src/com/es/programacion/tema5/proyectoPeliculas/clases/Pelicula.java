@@ -1,4 +1,4 @@
-package com.es.programacion.tema5.proyectoPeliculas.clases;
+package com.Programacion.Tema5.proyectoPeliculas.clases;
 
 public class Pelicula {
 

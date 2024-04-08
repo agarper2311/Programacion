@@ -1,55 +1,23 @@
-package com.es.programacion.tema5.proyectoMRajoy;
-
-import com.es.programacion.tema4.proyectoDNI.clases.VerificadorDNI;
+package com.Programacion.Tema5.proyectoMRajoy;
 
 public class Persona {
-
-    private final String dni;
+    private String dni;
     private String nombre;
     private String apellidos;
     private int edad;
 
-    private static final int MAYORIAEDAD = 21;
+    private static final int mayoriaEdad = 18;
 
     public Persona(String dni, String nombre, String apellidos, int edad) {
-
-        // check dni
-        if(VerificadorDNI.comprobarLetra(dni)
-                && VerificadorDNI.comprobarLongitud(dni)
-                && VerificadorDNI.comprobarParteNumerica(dni)
-                && VerificadorDNI.comprobarLetraCorrecta(dni)) {
+        if (validarDNI(dni)) {
             this.dni = dni;
-        } else {
-            this.dni = "";
-        }
-
-        this.nombre = nombre;
-        this.apellidos = apellidos;
-
-        if(edad >= 0) {
+            this.nombre = nombre;
+            this.apellidos = apellidos;
             this.edad = edad;
+        } else {
+            System.out.println("Error: DNI no válido. Los valores no se han guardado.");
         }
-
     }
-
-    public void imprime() {
-        System.out.print("El nombre es "+this.nombre+" "+this.apellidos+" con dni "+this.dni);
-    }
-
-    public boolean esMayorEdad(){
-        return this.edad >= Persona.MAYORIAEDAD;
-    }
-
-    public boolean esJubilade(){
-        return this.edad >= 65;
-    }
-
-    public int diferenciaEdad(Persona p) {
-        return Math.abs(this.edad - p.edad);
-    }
-
-
-
 
     public String getDni() {
         return dni;
@@ -77,5 +45,29 @@ public class Persona {
 
     public void setEdad(int edad) {
         this.edad = edad;
+    }
+
+    public void imprime() {
+        System.out.println("DNI: " + dni);
+        System.out.println("Nombre: " + nombre);
+        System.out.println("Apellidos: " + apellidos);
+        System.out.println("Edad: " + edad + " años");
+    }
+
+    public boolean esMayorEdad() {
+        return edad >= mayoriaEdad;
+    }
+
+    public boolean esJubilado() {
+        return edad >= 65;
+    }
+
+    public int diferenciaEdad(Persona p) {
+        return Math.abs(this.edad - p.getEdad());
+    }
+
+    private static boolean validarDNI(String dni) {
+        // Validar que el DNI tenga 8 números y una letra
+        return dni.matches("\\d{8}[A-Za-z]");
     }
 }

@@ -1,8 +1,8 @@
-package com.es.programacion.tema5.proyectoPeliculas;
-
-import com.es.programacion.tema5.proyectoPeliculas.clases.Pelicula;
-import com.es.programacion.tema5.proyectoPeliculas.services.PeliculasService;
-import com.es.programacion.tema5.proyectoPeliculas.utils.JsonReaderUtil;
+package com.Programacion.Tema5.proyectoPeliculas;
+/*
+import com.Programacion.Tema5.proyectoPeliculas.clases.Pelicula;
+import com.Programacion.Tema5.proyectoPeliculas.services.PeliculasService;
+import com.Programacion.Tema5.proyectoPeliculas.utils.JsonReaderUtil;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -16,29 +16,42 @@ public class MainCreacion {
         String pelisPath = "IMDB-api/Top250Movies.json";
         peliculas = JsonReaderUtil.loadJsonFile(pelisPath);
 
-        /*
-        Es hacer un menú para dar la opción de crear un nuevo registro
-         */
+
+
+
+        //Hacer un menú para dar la opción de crear un nuevo registro
+
+
+
         Scanner scan = new Scanner(System.in);
 
         try {
             int opc = 1;
 
-            while (opc != 0) {
-                System.out.print("""
-                        Bienvenid@ al CRUD de Peliculas
-                                        
-                        1. Insertar pelicula
-                        2. Mostrar peliculas de mayor a menor
-                        3. Mostrar peliculas de menor a mayor
-                        0. Salir
-                                        
-                        Escoja una opcion:
-                        """);
+            while (opc != 0){
+                System.out.println("""
+                _______________________________________
+                |Bienvenid@ al CRUD de Películas      |
+                |-------------------------------------|
+                |1. Insertar película.                |
+                |2. Mostrar películas de mayor a menor|
+                |3. Mostrar películas de menor a mayor|
+                |4. Mostrar pelis desde el 2000-2024  |
+                |5. El 4 pero con  nota que diga el   |
+                |   usuario por teclado               |
+                |6. Mostrar la película que usted     |
+                | quiera                              |
+                |7. Mostrar las peliculas de un       |
+                |   director.                         |
+                |8. Eliminar Pelicula                 |
+                |0. Salir.                            |
+                |_____________________________________|
+                """);
+
+                System.out.print("Ingrese su opción: ");
+
                 opc = scan.nextInt();
-
-                switch (opc) {
-
+                switch (opc){
                     case 1:
                         PeliculasService.addPelicula();
                         break;
@@ -46,22 +59,45 @@ public class MainCreacion {
                         PeliculasService.mostrarPeliculasDesc();
                         break;
                     case 3:
+                        PeliculasService.mostrarPeliculasAsc();
                         break;
-                    case 0:
-                        System.out.println("Adios...");
+                    case 4:
+                        PeliculasService.mostrarPeliculasDesde2000();
+                        break;
+                    case 5:
+                        PeliculasService.mostrarPeliculasConNota();
+                        break;
+                    case 6:
+                        PeliculasService.mostrarPeliculaPorTitulo();
+                        break;
+                    case 7:
+                        PeliculasService.mostrarPeliculaPorDirector();
+                        break;
+                    case 8:
+                        PeliculasService.eliminarPelicula();
                         break;
 
-                    default:
-                        System.out.println("Opcion no valida");
+                    case 0:
+                        System.out.println("Adios.....");
                         break;
+                    default:
+                        System.out.println("opcion no valida");
                 }
             }
 
 
-        } catch (InputMismatchException e) {
-            System.out.println("Opcion incorrecta... eliminando todos sus archivos");
+        }catch (InputMismatchException e){
+            System.out.println("Opción incorrecta");
         }
 
 
+
+
+
+
+
+
     }
-}
+
+
+ */

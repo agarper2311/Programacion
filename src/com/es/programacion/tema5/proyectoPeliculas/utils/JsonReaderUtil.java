@@ -1,7 +1,6 @@
-package com.es.programacion.tema5.proyectoPeliculas.utils;
+package com.Programacion.Tema5.proyectoPeliculas.utils;
 
-
-import com.es.programacion.tema5.proyectoPeliculas.clases.Pelicula;
+import com.Programacion.Tema5.proyectoPeliculas.clases.Pelicula;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;

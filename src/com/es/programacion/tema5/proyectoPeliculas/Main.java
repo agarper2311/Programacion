@@ -1,7 +1,7 @@
-package com.es.programacion.tema5.proyectoPeliculas;
+package com.Programacion.Tema5.proyectoPeliculas;
 
-import com.es.programacion.tema5.proyectoPeliculas.clases.Pelicula;
-import com.es.programacion.tema5.proyectoPeliculas.utils.JsonReaderUtil;
+import com.Programacion.Tema5.proyectoPeliculas.clases.Pelicula;
+import com.Programacion.Tema5.proyectoPeliculas.utils.JsonReaderUtil;
 import java.util.ArrayList;
 import java.util.UUID;
 

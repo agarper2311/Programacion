@@ -1,7 +1,8 @@
-package com.es.programacion.tema5.proyectoAlmacen;
+package com.Programacion.Tema5.proyectoAlmacen;
 
-import com.es.programacion.tema5.proyectoAlmacen.clases.Articulo;
-import com.es.programacion.tema5.proyectoMRajoy.Persona;
+import com.Programacion.Tema5.proyectoAlmacen.clases.Articulo;
+import com.Programacion.Tema5.proyectoMRajoy.Persona;
+
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -97,8 +98,8 @@ public class Main {
         Articulo libro = new Articulo("Programacion", 70, 350, "G");
         Articulo estuche = new Articulo("Estuche Maquillaje", 25, 300, "G");
         Articulo chandal = new Articulo("Chandal nike uapo uapo", 200, 100, "G");
-        Articulo vape = new Articulo("Vape de contrabando", 10, 10, "G");
-        Articulo barcelo = new Articulo("Ron semibarato", 14, 1, "G");
+        Articulo vape = new Articulo("Vape de contrabando", 10, 9, "G");
+        Articulo barcelo = new Articulo("Ron semibarato", 14, 5, "G");
 
         // Añadir todos los objetos al ArrayList articulos
         articulos.add(raqueta);
@@ -121,197 +122,118 @@ public class Main {
         articulos.add(barcelo);
 
 
-        // Un pequeño programa que muestre por pantalla:
-        // - Los artículos cuyo stock (cuantosQuedan) sea <= 0
-        // - Los artículos cuyo stock esté apunto de acabarse (stock <= 10)
+        /**
+         *Un pequeño programa que muestre por pantalla:
+         * - Los articulos cuyo stok (cuantosQuedan) sea <=0
+         * -  Los artículos cuyo stock esté apunto de acabarse (stock <=10)
+         *
+         * Recorres el ArrayList y pones dentro las condiciones que os piden
+         *
+         * Recorres el Arraylist y poneis dentro las condiciones que se os piden(x2)
+         */
 
-        // Recorreis el ArrayList y ponéis dentro las condiciones que se os piden (x2)
-        // For normal
-
-        System.out.println("Articulos sin stock: ¡COMPRAR MAS!"); // Sout informativo
-        for(int i=0; i<articulos.size(); i++) { // Recorro el ArrayList articulos
-            if(articulos.get(i).getCuantosQuedan() <= 0) { // Para cada uno de los articulos, hago una condicion
-                System.out.println(articulos.get(i).getNombre()); // Imprimo por pantalla el nombre del articulo
+        for (int i = 0; i < articulos.size(); i++) {
+            Articulo articulo = articulos.get(i);
+            if (articulo.getCuantosQuedan() <= 0 || articulo.getCuantosQuedan() <= 10) {
+                System.out.println("Articulo: " + articulo.getNombre() + ", Stock: " + articulo.getCuantosQuedan());
             }
         }
 
-
-        System.out.println("Articulos apunto de agotarse:"); // Sout informativo
-        for(int i=0; i<articulos.size(); i++) { // Recorro el ArrayList articulos
-            if(articulos.get(i).getCuantosQuedan() <= 10) { // Para cada uno de los articulos, hago una condicion
-                System.out.println(articulos.get(i).getNombre()); // Imprimo por pantalla el nombre del articulo
-            }
-        }
-
-        // Foreach
+        // Crear un pequeño menú para hacer diferentes operaciones con los artículos
         /*
-        System.out.println("Productos sin stock:");
-        for(Articulo articulo : articulos) {
-            if(articulo.getCuantosQuedan()<=0) {
-                System.out.println(articulo.getNombre());
-            }
-        }
-
-        System.out.println("Productos apunto de acabarse:");
-        for(Articulo articulo : articulos) {
-            if(articulo.getCuantosQuedan()<=10) {
-                System.out.println(articulo.getNombre());
-            }
-        }
-        */
-
-
-        // Pequeño menú para hacer diferentes operaciones con los artículos
-        /*
-        Menú Articulo
-        1. Contar cuántos artículos hay con stock <= 0
-        2. Contar cuántos artículos hay de tipo SR
-        3. Contar cuántos artículos hay con un precio menor que 100€
-        4. Decir cuál es el artículo con mayor precio
-        5. Decir cuál es el artículo con menor precio
+        1. Contar cuantos artículos hay con stock <=0
+        2. Contar cuantos artículos hay de tipo SR
+        3. Contar cuanto artículos hay con un precio menor que 100€
+        4. Decir cual es el artículo con mayor precio
+        5. Decir cual es el artículo con menor precio
          */
 
         Scanner scan = new Scanner(System.in);
         System.out.println("""
-                Menú Articulo
-                1. Contar cuántos artículos hay con stock <= 0
-                2. Contar cuántos artículos hay de tipo SR
-                3. Contar cuántos artículos hay con un precio menor que 100€
-                4. Decir cuál es el artículo con mayor precio
-                5. Decir cuál es el artículo con menor precio
+                                
+                Menu Artículo:
+                           1. Contar cuantos artículos hay con stock <=0
+                           2. Contar cuantos artículos hay de tipo SR
+                           3. Contar cuanto artículos hay con un precio menor que 100€
+                           4. Decir cual es el artículo con mayor precio
+                           5. Decir cual es el artículo con menor precio
+                                
                 """);
-        System.out.println("Indique la opción deseada: ");
-        int opc;
-        try  {
-            opc = scan.nextInt();
-            int cont = 0;
-            switch (opc){
+        int opcion;
+        try {
+            opcion = scan.nextInt();
+
+            switch (opcion) {
                 case 1:
-                    // Logica de la opcion 1
-                    cont = 0;
-                    for(int i=0; i<articulos.size(); i++) { // Recorro el ArrayList articulos
-                        if(articulos.get(i).getCuantosQuedan() <= 0) { // Para cada uno de los articulos, hago una condicion
-                            cont++;
+
+                    int stock0 = 0;
+                    for (Articulo articulo : articulos) {
+                        if (articulo.getCuantosQuedan() <= 0) {
+                            stock0++;
                         }
                     }
-                    System.out.println("Hay "+cont+" sin stock");
+                    System.out.println("Numero de articulos menor o igual a 0: " + stock0);
                     break;
+
                 case 2:
-                    // Logica de la opcion 2
-                    cont = 0;
-                    for(int i=0; i<articulos.size(); i++) { // Recorro el ArrayList articulos
-                        if(articulos.get(i).getTipo().equals("SR")) { // Para cada uno de los articulos, hago una condicion
-                            cont++;
+
+                    int tipoSR = 0;
+                    for (Articulo articulo : articulos) {
+                        if ("SR".equals(articulo.getPVP())) {
+                            tipoSR++;
                         }
                     }
-                    System.out.println("Hay "+cont+" artículos de tipo Super Reducido");
+                    System.out.println("Numero de articulos de tipo SR: " + tipoSR);
                     break;
+
                 case 3:
-                    // Logica de la opcion 3
-                    cont = 0;
-                    for(int i=0; i<articulos.size(); i++) { // Recorro el ArrayList articulos
-                        if(articulos.get(i).getPrecio() <=100) { // Para cada uno de los articulos, hago una condicion
-                            cont++;
+
+                    int preciosuperior100 = 0;
+                    for (Articulo articulo : articulos) {
+                        if (articulo.getPrecio() < 100) {
+                            preciosuperior100++;
                         }
                     }
-                    System.out.println("Hay "+cont+" artículos con un precio menor que 100€");
+                    System.out.println("Number of articles with price < 100€: " + preciosuperior100);
                     break;
+
                 case 4:
-                    // Logica de la opcion 4
-                    if (articulos.size()>0) {
-                        Articulo mayor = articulos.get(0);
-                        for(int i=0; i<articulos.size(); i++) { // Recorro el ArrayList articulos
-                            if(articulos.get(i).getPrecio() > mayor.getPrecio()) { // Para cada uno de los articulos, hago una condicion
-                                mayor = articulos.get(i);
-                            }
+
+                    double preciomaximo = Double.MIN_VALUE;
+                    Articulo preciomaximoArt = null;
+                    for (Articulo articulo : articulos) {
+                        if (articulo.getPrecio() > preciomaximo) {
+                            preciomaximo = articulo.getPrecio();
+                            preciomaximoArt = articulo;
                         }
-                        System.out.println("El producto con un precio mayor es: "+mayor.getNombre()+" con un precio de "+mayor.getPrecio()+"€");
-                    } else {
-                        System.out.println("No hay artículos para comparar");
                     }
-
-
+                    if (preciomaximoArt != null) {
+                        System.out.println("Ariculo más caro: " + preciomaximoArt.getNombre());
+                    } else {
+                        System.out.println("No se han encontrado articulos.");
+                    }
                     break;
+
                 case 5:
-                    // Logica de la opcion 5
-                    if (articulos.size()>0) {
-                        Articulo menor = articulos.get(0);
-                        for(int i=0; i<articulos.size(); i++) { // Recorro el ArrayList articulos
-                            if(articulos.get(i).getPrecio() < menor.getPrecio()) { // Para cada uno de los articulos, hago una condicion
-                                menor = articulos.get(i);
-                            }
+                    double precioMinimo = Double.MAX_VALUE;
+                    Articulo precioMinArt = null;
+                    for (Articulo articulo : articulos) {
+                        if (articulo.getPrecio() < precioMinimo) {
+                            precioMinimo = articulo.getPrecio();
+                            preciomaximoArt = articulo;
                         }
-                        System.out.println("El producto con un precio menor es: "+menor.getNombre()+" con un precio de "+menor.getPrecio()+"€");
+                    }
+                    if (precioMinArt != null) {
+                        System.out.println("Articulos mas baratos: " + precioMinArt.getNombre());
                     } else {
-                        System.out.println("No hay artículos para comparar");
+                        System.out.println("No se han encontrado articulos");
                     }
                     break;
+
                 default:
-                    System.out.println("Opcion no reconocida");
+                    System.out.println("Opción inválida, intentelo de nuevo");
                     break;
             }
-
-        } catch (Exception e) {
-            System.out.println("Error en la opcion... eliminando todos sus archivos");
-        }
-
-
-
-
-
-
-
-
-
-        /*
-        Vamos a crear 1 ArrayList de Articulos.
-
-        Creamos 10 Articulos y los añadimos al ArrayList
-
-        Hacemos operaciones sobre ese ArrayList
-
-        1. Contar cuántos artículos hay con stock > 0
-        2. Contar cuántos artículos hay de tipo SR
-        3. Contar cuántos artículos hay con un precio menor que 100€
-        4. Decir cuál es el artículo con mayor precio
-        5. Decir cuál es el artículo con menor precio
-
-         */
-
-
-
-
-
-
-
-
-
-
-
-
-
-        /*
-        Actividad para practicar con ArrayLists
-        Voy a crear como 10 artículos
-
-        Luego, creamos una clase Almacen, que tenga Articulos
-        - cif: String
-        - nombre: String
-        - articulos: List<Articulo>
-        + anadirArticulo(articulo: Articulo): boolean
-        + venderArticulo(articulo: Articulo, cantidad: int): boolean
-        + consultarStock(): int
-
-        // En en main, vamos a hacer un pequeño menu para añadir articulos al almacen
-
-        Menu Almacen
-        1. Adquirir articulo
-        2. Vender articulo
-        3. Consultar stock
-        0. Salir
-
-         */
-
-
-    }
-}
+        } finally {
+            System.out.println("Adios");
+        }}}
