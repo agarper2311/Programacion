@@ -1,0 +1,2 @@
+¿De qué color es una naranja?:Naranja
+¿Capital de España?:Madrid

@@ -71,10 +71,10 @@ public class GestionFicheroUser implements GestionFichero<User> {
                 bw = new BufferedWriter(fw);
 
 
-                // 4º 0peramos con el fichero
+                // 4º Operamos con el fichero
                 // a) Recorremos el arrayList que queremos escribir en el fichero
                 for (User u : users) {
-                    // b) escribrimos en el fichero
+                    // b) escribimos en el fichero
                     bw.write(u.getId()+":"+u.getName()+":"+u.getPass()+":");
                     bw.write(u.isAdmin()+"");
                     bw.write("\n");
@@ -107,7 +107,7 @@ public class GestionFicheroUser implements GestionFichero<User> {
                 bw = new BufferedWriter(fw);
 
 
-                // 4º 0peramos con el fichero
+                // 4º Operamos con el fichero
                 bw.write(user.getId()+":"+user.getName()+":"+user.getPass()+":");
                 bw.write(user.isAdmin()+"");
                 bw.write("\n");

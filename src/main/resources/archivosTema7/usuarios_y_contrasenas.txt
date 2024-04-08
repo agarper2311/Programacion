@@ -2,3 +2,13 @@ Usuario: hola, Contraseña: 1234
 Usuario: adios, Contraseña: 5678
 Usuario: bueno, Contraseña: 1111
 Usuario: malo, Contraseña: 0000
+Usuario: hola, Contraseña: 123
+Usuario: adios, Contraseña: 1234
+Usuario: perro, Contraseña: 111
+Usuario: gato, Contraseña: 222
+Usuario: juanito, Contraseña: admin
+Usuario: root, Contraseña: root
+Usuario: user, Contraseña: user
+Usuario: PerroSanxe, Contraseña: PSOE
+Usuario: Santiago Abascal, Contraseña: VOX
+Usuario: AuronPlay, Contraseña: Abduscan
