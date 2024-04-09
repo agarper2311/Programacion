@@ -1,8 +1,7 @@
-package com.es.programacion.tema7.proyectoUser.services.impl;
+package com.es.programacion.Tema7.proyectoUser.services.impl;
 
 import com.es.programacion.tema7.proyectoUser.model.User;
-import com.es.programacion.tema7.proyectoUser.services.api.GestionFichero;
-
+import com.es.programacion.Tema7.proyectoUser.services.api.GestionFichero;
 import java.io.*;
 import java.util.ArrayList;
 
@@ -71,10 +70,10 @@ public class GestionFicheroUser implements GestionFichero<User> {
                 bw = new BufferedWriter(fw);
 
 
-                // 4º Operamos con el fichero
+                // 4º 0peramos con el fichero
                 // a) Recorremos el arrayList que queremos escribir en el fichero
                 for (User u : users) {
-                    // b) escribimos en el fichero
+                    // b) escribrimos en el fichero
                     bw.write(u.getId()+":"+u.getName()+":"+u.getPass()+":");
                     bw.write(u.isAdmin()+"");
                     bw.write("\n");
@@ -107,7 +106,7 @@ public class GestionFicheroUser implements GestionFichero<User> {
                 bw = new BufferedWriter(fw);
 
 
-                // 4º Operamos con el fichero
+                // 4º 0peramos con el fichero
                 bw.write(user.getId()+":"+user.getName()+":"+user.getPass()+":");
                 bw.write(user.isAdmin()+"");
                 bw.write("\n");

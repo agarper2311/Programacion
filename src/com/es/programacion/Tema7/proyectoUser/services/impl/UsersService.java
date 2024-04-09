@@ -1,9 +1,9 @@
-package com.es.programacion.tema7.proyectoUser.services.impl;
+package com.es.programacion.Tema7.proyectoUser.services.impl;
 
+import com.es.programacion.Tema7.proyectoUser.services.api.BasicService;
+import com.es.programacion.Tema7.proyectoUser.services.api.GestionFichero;
 import com.es.programacion.pruebas.pokemon.assets.Loader;
 import com.es.programacion.tema7.proyectoUser.model.User;
-import com.es.programacion.tema7.proyectoUser.services.api.BasicService;
-import com.es.programacion.tema7.proyectoUser.services.api.GestionFichero;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -89,7 +89,7 @@ public class UsersService implements BasicService<User> {
     public boolean alta(User newObj) {
         // Si encontramos al usuario dentro del sistema, significa que ya existe, así que no podemos darlo de alta
         if(exists(newObj.getId())) {
-           // Si el usuario ya existe en el sistema, devolveremos un false indicando que ya existe y que no se puede duplicar
+            // Si el usuario ya existe en el sistema, devolveremos un false indicando que ya existe y que no se puede duplicar
             System.out.println("Usuario ya existente en el sistema...");
             return false;
         } else {

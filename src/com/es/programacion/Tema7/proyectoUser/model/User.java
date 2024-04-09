@@ -12,7 +12,7 @@ public class User {
 
     public User(String id, String name, String pass, boolean isAdmin){
 
-
+        this.id = id;
 
     }
 
@@ -48,11 +48,22 @@ public class User {
         isAdmin = admin;
     }
 
+
+    @Override
+    public String toString() {
+        return "El user se llama "+this.name+" con id: "+this.id;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return Objects.equals(id, user.id);
+        return Objects.equals(this.id, user.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, pass, isAdmin);
     }
 }

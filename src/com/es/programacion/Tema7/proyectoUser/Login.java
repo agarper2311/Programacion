@@ -18,7 +18,7 @@ public class Login {
             System.out.println("| 0). Salir                               |");
             System.out.println("|_________________________________________|");
             System.out.println("|                                         |");
-            System.out.println("| Introduzca su opción:                   |");
+            System.out.println("| Introduzca su opcion:                   |");
             System.out.println("|_________________________________________|");
 
             Scanner scan = new Scanner(System.in);
@@ -27,7 +27,7 @@ public class Login {
         } while (opt != 0);
         switch (opt){
             case 1:
-
+                ;
                 break;
 
             case 2:
