@@ -1,4 +1,4 @@
-package com.es.programacion.tema7.proyectoUser.model;
+package com.es.programacion.Tema7.proyectoUser.model;
 
 import java.util.Objects;
 
