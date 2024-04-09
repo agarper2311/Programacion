@@ -1,7 +1,8 @@
 package com.es.programacion.Tema7.proyectoUser.services.impl;
 
-import com.es.programacion.tema7.proyectoUser.model.User;
+import com.es.programacion.Tema7.proyectoUser.model.User;
 import com.es.programacion.Tema7.proyectoUser.services.api.GestionFichero;
+
 import java.io.*;
 import java.util.ArrayList;
 
@@ -28,7 +29,7 @@ public class GestionFicheroUser implements GestionFichero<User> {
                     String pass_user = "";
                     String is_admin_user = "";
 
-                    String[] valores = linea.split(":");
+                    String[] valores = linea.split(";");
 
                     id_user = valores[0];
                     name_user = valores[1];

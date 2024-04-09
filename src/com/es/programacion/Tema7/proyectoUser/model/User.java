@@ -9,12 +9,21 @@ public class User {
     private String pass;
     private boolean isAdmin;
 
-
-    public User(String id, String name, String pass, boolean isAdmin){
-
+    /**
+     * Constructor que recibe los siguientes parámetros:
+     * @param id
+     * @param name
+     * @param pass
+     * @param isAdmin
+     */
+    public User(String id, String name, String pass, boolean isAdmin) {
         this.id = id;
-
+        this.name = name;
+        this.pass = pass;
+        this.isAdmin = isAdmin;
     }
+
+    // Getters y Setters
 
     public String getId() {
         return id;
@@ -28,9 +37,17 @@ public class User {
         return name;
     }
 
+    /**
+     * El setter setName asegura que tanto el nombre, ID y pass no sean null
+     * @param name
+     */
     public void setName(String name) {
+        if (name == null || name.trim().isEmpty()) {
+            throw new IllegalArgumentException("El nombre no puede ser nulo o vacío");
+        }
         this.name = name;
     }
+
 
     public String getPass() {
         return pass;
@@ -49,10 +66,13 @@ public class User {
     }
 
 
+    // Método toString que devuelve el nombre y el ID del usuario, también nos mostrará
+    // si es administrador o no
     @Override
     public String toString() {
-        return "El user se llama "+this.name+" con id: "+this.id;
+        return "User{name='" + name + "', id='" + id + "', isAdmin=" + isAdmin + "}";
     }
+
 
     @Override
     public boolean equals(Object o) {
@@ -62,8 +82,10 @@ public class User {
         return Objects.equals(this.id, user.id);
     }
 
+    // Método hashCode para que se base solo en el ID
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, pass, isAdmin);
+        return Objects.hash(id);
     }
+
 }

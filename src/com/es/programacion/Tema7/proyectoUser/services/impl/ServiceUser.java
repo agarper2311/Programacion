@@ -1,108 +1,75 @@
 package com.es.programacion.Tema7.proyectoUser.services.impl;
 
-import com.es.programacion.tema7.proyectoUser.model.User;
+import com.es.programacion.Tema7.proyectoUser.model.User;
 import com.es.programacion.Tema7.proyectoUser.services.api.BasicServiceUser;
+import com.es.programacion.Tema7.proyectoUser.services.api.GestionFichero;
 
 import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.List;
 
 public class ServiceUser implements BasicServiceUser {
 
-    // ATRIBUTOS
-    ArrayList<User> users; // Contiene todos los registros del fichero users.txt
-    GestionFicheroUser gestion; // gestion es un objeto para poder llamar a los métodos de GestionFicheroUser
+    private List<User> users;
+    private GestionFichero<User> gestionFichero;
+    private final String rutaFichero;
 
-    public ServiceUser() {
-        this.users = new ArrayList<>();
-        this.gestion = new GestionFicheroUser();
-        this.users = gestion.leerFichero("main/resources/archivosTema7/users/users.txt");
+    public ServiceUser(GestionFichero<User> gestionFichero, String rutaFichero) {
+        this.gestionFichero = gestionFichero;
+        this.rutaFichero = rutaFichero;
+        this.users = gestionFichero.leerFichero(rutaFichero);
     }
 
     @Override
-    public boolean altaUsuario() {
+    public boolean altaUsuario(User nuevoUsuario) {
+        if (userExists(nuevoUsuario.getId())) {
+            System.out.println("El usuario ya existe.");
+            return false;
+        }
+        users.add(nuevoUsuario);
+        gestionFichero.anadirFichero(nuevoUsuario, rutaFichero);
+        return true;
+    }
 
+    @Override
+    public boolean loginUsuario(String idUser, String password) {
         return false;
     }
 
     @Override
-    public boolean loginUsuario() {
-
-        Scanner scan = new Scanner(System.in);
-        String idUsuario = "";
-        String passwordUsuario = "";
-
-        System.out.print("Introduzca su idUsuario: ");
-        idUsuario = scan.nextLine();
-
-        // Comprobamos en el fichero si el idUser existe
-        if(userExists(idUsuario)) {
-
-            System.out.print("Introduzca su password: ");
-            passwordUsuario = scan.nextLine();
-
-            if (checkUser(idUsuario, passwordUsuario)) {
-
-                System.out.println("Bienvenid@ "+idUsuario);
-                return true;
-            } else {
-                System.out.println("Credenciales incorrectas");
-                return false;
-            }
-
+    public void anadirUsuario(User u) {
+        if (!userExists(u.getId())) {
+            users.add(u); // Añadir usuario a la lista en memoria
+            gestionFichero.anadirFichero(u, rutaFichero); // Añadir usuario al fichero
         } else {
-            System.out.println("El usuario no existe en el sistema");
-            return false;
+            System.out.println("El usuario ya existe y no se puede añadir de nuevo.");
         }
     }
+
+
 
     @Override
     public boolean checkUser(String idUser, String password) {
-
-        // 1º manera de hacerlo
-        for (int i=0; i<this.users.size(); i++) {
-            User usuario = this.users.get(i); // usuario es el elemento de la posicion i de users
-            if(usuario.getId().equalsIgnoreCase(idUser) && usuario.getPass().equals(password)) {
-                return true;
-            }
-        }
-
-        // 2º manera de hacerlo
-        /*
-        for(User usuario : this.users) {
-            if(usuario.getId().equalsIgnoreCase(idUser) && usuario.getPass().equals(password)) {
-                return true;
-            }
-        }
-         */
-
-        // 3º manera de hacerlo
-        /*
-        return !this.users.stream()
-                .filter(usuario -> usuario.getId().equalsIgnoreCase(idUser) && usuario.getPass().equals(password))
-                .findFirst()
-                .isEmpty();
-        */
-
-        return false;
+        return users.stream().anyMatch(u -> u.getId().equals(idUser) && u.getPass().equals(password));
     }
 
     @Override
     public boolean userExists(String idUser) {
-        return false;
+        return users.stream().anyMatch(u -> u.getId().equals(idUser));
     }
 
     @Override
     public void leerFicheroUsers() {
-        this.users = gestion.leerFichero("main/resources/archivosTema7/users/users.txt");
+        this.users = gestionFichero.leerFichero(rutaFichero);
     }
 
     @Override
     public void anadirFicheroUsers(User u) {
-        gestion.anadirFichero(u, "main/resources/archivosTema7/users/users.txt");
+        gestionFichero.anadirFichero(u, rutaFichero);
     }
 
     @Override
     public void modificarFicheroUsers() {
-        gestion.modificarFichero(this.users, "main/resources/archivosTema7/users/users.txt");
+        // He casteado el primer argumento para que no me de fallo
+        gestionFichero.modificarFichero((ArrayList<User>) users, rutaFichero);
     }
 }
