@@ -13,7 +13,7 @@ public class ServiceUser implements BasicServiceUser {
     private GestionFichero<User> gestionFichero;
     private final String rutaFichero;
 
-    public ServiceUser(GestionFichero<User> gestionFichero, String rutaFichero) {
+    public ServiceUser(String rutaFichero) {
         this.gestionFichero = gestionFichero;
         this.rutaFichero = rutaFichero;
         this.users = gestionFichero.leerFichero(rutaFichero);
