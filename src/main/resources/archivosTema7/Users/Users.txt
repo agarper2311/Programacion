@@ -1,3 +1,2 @@
 idUser:nombre:pass:isAdmin
-agarper2311:angel:angel123:false
-sldkfhsdaf:sadsdfaafsd:sdfasadf:false
+

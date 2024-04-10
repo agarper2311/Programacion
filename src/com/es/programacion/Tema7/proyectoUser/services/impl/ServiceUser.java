@@ -32,11 +32,17 @@ public class ServiceUser implements BasicServiceUser {
 
     @Override
     public boolean loginUsuario(String idUser, String password) {
-
-
-
-        return false;
+        // Reutilizamos el método checkUser para verificar si existe un usuario
+        // con el id y la contraseña proporcionados.
+        boolean loginExitoso = checkUser(idUser, password);
+        if (loginExitoso) {
+            System.out.println("Inicio de sesión exitoso.");
+        } else {
+            System.out.println("Error de inicio de sesión: Usuario o contraseña incorrectos.");
+        }
+        return loginExitoso;
     }
+
 
     @Override
     public void anadirUsuario(User u) {
