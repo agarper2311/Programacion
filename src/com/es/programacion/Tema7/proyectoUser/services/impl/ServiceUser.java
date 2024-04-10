@@ -10,11 +10,11 @@ import java.util.List;
 public class ServiceUser implements BasicServiceUser {
 
     private List<User> users;
-    private GestionFichero<User> gestionFichero;
+    private GestionFicheroUser gestionFichero;
     private final String rutaFichero;
 
     public ServiceUser(String rutaFichero) {
-        this.gestionFichero = gestionFichero;
+        this.gestionFichero = new GestionFicheroUser();
         this.rutaFichero = rutaFichero;
         this.users = gestionFichero.leerFichero(rutaFichero);
     }
@@ -32,6 +32,9 @@ public class ServiceUser implements BasicServiceUser {
 
     @Override
     public boolean loginUsuario(String idUser, String password) {
+
+
+
         return false;
     }
 
