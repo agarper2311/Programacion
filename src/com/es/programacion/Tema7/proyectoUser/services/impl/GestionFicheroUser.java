@@ -29,7 +29,7 @@ public class GestionFicheroUser implements GestionFichero<User> {
                     String pass_user = "";
                     String is_admin_user = "";
 
-                    String[] valores = linea.split(";");
+                    String[] valores = linea.split(":");
 
                     id_user = valores[0];
                     name_user = valores[1];
