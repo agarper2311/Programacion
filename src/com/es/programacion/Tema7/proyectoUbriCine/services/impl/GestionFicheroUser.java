@@ -5,7 +5,7 @@ import com.es.programacion.Tema7.proyectoUbriCine.model.User;
 import java.io.*;
 import java.util.List;
 
-import static com.es.programacion.Tema7.proyectoUbriCine.services.impl.GestionFicheroLogger.registrarAccion;
+
 
 /**
  * Archivo para manejar la lectura y escritura de los datos
@@ -58,7 +58,7 @@ public class GestionFicheroUser {
         User nuevoUsuario = new User(id, name, password, isAdmin);
         users.add(nuevoUsuario);
         guardarUsuario();
-        registrarAccion("alta", id, name, password, isAdmin, true);
+        //registrarAccion("alta", id, name, password, isAdmin, true);
     }
 
     /**
