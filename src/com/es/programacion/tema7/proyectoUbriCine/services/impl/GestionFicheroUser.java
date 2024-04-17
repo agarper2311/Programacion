@@ -60,7 +60,6 @@ public class GestionFicheroUser {
     }
 
     private void registrarAccion(String alta, String id, String name, String password, boolean isAdmin, boolean b) {
-
     }
 
     /**
