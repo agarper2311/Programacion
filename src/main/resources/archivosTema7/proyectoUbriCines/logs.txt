@@ -1,0 +1,5 @@
+agarper2311;2024-04-19;23:02:00;Registro de nuevo usuario;correcta
+agarper2311;2024-04-19;23:02:07;Inicio de sesión;correcta
+agarper2311;2024-04-19;23:02:49;Inicio de sesión;correcta
+agarper2311;2024-04-19;23:03:08;Inicio de sesión;correcta
+agarper2311;2024-04-19;23:06:30;Inicio de sesión;correcta

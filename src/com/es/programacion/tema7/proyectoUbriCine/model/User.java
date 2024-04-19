@@ -1,60 +1,38 @@
 package com.es.programacion.tema7.proyectoUbriCine.model;
 
-import java.util.Objects;
-
+/**
+ * Clase que representa a un usuario del sistema de gestión de entradas del cine UbriCines.
+ */
 public class User {
-    // Atributos de clase
     private String id;
     private String name;
     private String password;
     private boolean isAdmin;
 
     /**
-     * Constructor que recibe los siguiente parámetros:
-     * @param id
-     * @param name
-     * @param password
-     * @param isAdmin
+     * Constructor para crear un nuevo usuario.
+     * @param id El identificador único del usuario.
+     * @param name El nombre del usuario.
+     * @param password La contraseña del usuario.
+     * @param isAdmin Booleano que indica si el usuario tiene privilegios de administrador.
      */
     public User(String id, String name, String password, boolean isAdmin) {
-        this.id = id;
-        this.name = name;
-        this.password = password;
-        this.isAdmin = isAdmin;
+        this.setId(id);
+        this.setName(name);
+        this.setPassword(password);
+        this.setAdmin(isAdmin);
     }
 
-    // Método toString
-
-    @Override
-    public String toString() {
-        return id + ":" + name + ":" + password + ":" + isAdmin;
-    }
-
-    // Método equals()
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        User user = (User) o;
-        return isAdmin == user.isAdmin && Objects.equals(id, user.id) && Objects.equals(name, user.name) && Objects.equals(password, user.password);
-    }
-
-    // Método hashCode()
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name, password, isAdmin);
-    }
-
-
-    // Getters y setters
-
+    // Getters y Setters
 
     public String getId() {
         return id;
     }
 
     public void setId(String id) {
+        if (id == null || id.trim().isEmpty()) {
+            throw new IllegalArgumentException("El ID no puede ser nulo o vacío.");
+        }
         this.id = id;
     }
 
@@ -63,6 +41,9 @@ public class User {
     }
 
     public void setName(String name) {
+        if (name == null || name.trim().isEmpty()) {
+            throw new IllegalArgumentException("El nombre no puede ser nulo o vacío.");
+        }
         this.name = name;
     }
 
@@ -71,6 +52,9 @@ public class User {
     }
 
     public void setPassword(String password) {
+        if (password == null || password.isEmpty()) {
+            throw new IllegalArgumentException("La contraseña no puede ser nula o vacía.");
+        }
         this.password = password;
     }
 
@@ -80,5 +64,20 @@ public class User {
 
     public void setAdmin(boolean admin) {
         isAdmin = admin;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", password='[PROTECTED]'" +
+                ", isAdmin=" + isAdmin +
+                '}';
+    }
+
+
+    public void setNombre(String nombre) {
+        this.name = nombre;
     }
 }
