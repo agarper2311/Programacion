@@ -12,10 +12,19 @@ public class ServiceUser implements BasicServiceUser {
     private GestionFicheroUser gestionFichero;
     private final String rutaFichero;
 
-    public ServiceUser(String rutaFichero) {
+    public ServiceUser() {
         this.gestionFichero = new GestionFicheroUser();
-        this.rutaFichero = rutaFichero;
+        this.rutaFichero = "src/main/resources/archivosTema7/Users/Users.txt";
         this.users = gestionFichero.leerFichero(rutaFichero);
+    }
+
+    public boolean loginUI(String idUser, String passUser){
+
+        return users.stream()
+                .filter(user -> user.getId().equalsIgnoreCase(idUser) && user.getPass().equals(passUser))
+                .findFirst()
+                .isPresent();
+
     }
 
     @Override
